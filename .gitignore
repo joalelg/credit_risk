@@ -189,3 +189,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/model.pkl
+
+# If dvc-env folder is not added to the .gitignore file, add it
+dvc-env/
