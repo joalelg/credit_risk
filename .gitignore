@@ -1,5 +1,5 @@
 # Data
-/data/
+#/data/
 
 # Mac OS-specific storage files
 .DS_Store
@@ -190,6 +190,3 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 /model.pkl
-
-# If dvc-env folder is not added to the .gitignore file, add it
-dvc-env/
