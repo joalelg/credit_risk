@@ -1,22 +1,16 @@
 stages:
-  featurize:
-    cmd: python src/preprocess.py data/prepared data/features
+  data_prep:
+    cmd: python -m prepare_data
+    wdir: src
     deps:
-    - data/prepared
-    - src/preprocess.py
-    params:
-    - featurize.max_features
-    - featurize.ngrams
+    - python -m prepare_data.py
+    - ../data/raw/credit_risk_dataset.csv
     outs:
-    - data/features
+    - data/processed/credit_risk_prepared.csv
   train:
-    cmd: python src/train.py data/features model.pkl
+    cmd: python -m train
     deps:
-    - data/features
     - src/train.py
-    params:
-    - train.min_split
-    - train.n_est
-    - train.seed
+    - ./data/processed/credit_risk_prepared.csv
     outs:
-    - model.pkl
+    - models/automl_best_mdl.pkl
