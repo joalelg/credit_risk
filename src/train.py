@@ -11,9 +11,9 @@ data.reset_index(inplace=True, drop=True)
 data.head()
 # %%
 test_size, folds = .2, 10
-
+seed = 123
 model = setup(data = data, target = 'loan_status'
-              , session_id=123
+              , session_id=seed
               ,train_size=(1-test_size)
               ,fold=folds
               ,) 
@@ -25,5 +25,5 @@ best = compare_models(include = ['catboost','lda','lr','rf','et'])
 # %%
 # save pipeline
 final_model = finalize_model(best)
-save_model(best, '../models/automl_best_mdl')
+save_model(best, '../models/model')
 # %%

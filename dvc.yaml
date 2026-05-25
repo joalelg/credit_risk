@@ -14,4 +14,4 @@ stages:
     -  train.py
     -  ../data/processed/credit_risk_prepared.csv
     outs:
-    - ../models/automl_best_mdl.pkl
+    - ../models/model.pkl
