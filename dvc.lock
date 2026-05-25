@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  data_prep:
+    cmd: python -m prepare_data
+    deps:
+    - path: ../data/raw/credit_risk_dataset.csv
+      hash: md5
+      md5: 9a01768113784fa109745fd8fe031eee
+      size: 1804682
+    - path: prepare_data.py
+      hash: md5
+      md5: 7328836f4c2c2cdf1d2a3e26f249f3c9
+      size: 1478
+    outs:
+    - path: ../data/processed/credit_risk_prepared.csv
+      hash: md5
+      md5: 08bc7d7dbdc5357df612ed144c0f6875
+      size: 1572664
+  train:
+    cmd: python -m   train
+    deps:
+    - path: ../data/processed/credit_risk_prepared.csv
+      hash: md5
+      md5: 08bc7d7dbdc5357df612ed144c0f6875
+      size: 1572664
+    - path: train.py
+      hash: md5
+      md5: cae0cffb2834d777749857992676b0e1
+      size: 713
+    outs:
+    - path: ../models/automl_best_mdl.pkl
+      hash: md5
+      md5: 6a1c8c53a8dff843c558214d6cd42df6
+      size: 1136007

@@ -3,14 +3,15 @@ stages:
     cmd: python -m prepare_data
     wdir: src
     deps:
-    - python -m prepare_data.py
+    - prepare_data.py
     - ../data/raw/credit_risk_dataset.csv
     outs:
-    - data/processed/credit_risk_prepared.csv
+    - ../data/processed/credit_risk_prepared.csv
   train:
-    cmd: python -m train
+    cmd: python -m   train
+    wdir: src
     deps:
-    - src/train.py
-    - ./data/processed/credit_risk_prepared.csv
+    -  train.py
+    -  ../data/processed/credit_risk_prepared.csv
     outs:
-    - models/automl_best_mdl.pkl
+    - ../models/automl_best_mdl.pkl
